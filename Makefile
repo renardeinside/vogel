@@ -6,11 +6,14 @@ create-consumer:
     --bootstrap-server kafka:9092 \
     --from-beginning \
     --property print.key=true \
+		--property print.value=false \
     --topic dbserver1.inventory.customers
 
 get-jupyter-token:
 	docker-compose -f docker-compose.yml exec jupyter-local jupyter notebook list
 
-get-postgres-driver:
-	docker-compose -f docker-compose.yml exec jupyter-local \
-	wget -P /home/jovyan https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar
+run-streamer:
+	docker-compose  \
+	-f docker-compose.yml exec jupyter-local /usr/local/spark/bin/spark-submit \
+	--packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.3 \
+	/home/jovyan/work/cdc_reader.py
