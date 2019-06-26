@@ -9,4 +9,8 @@ create-consumer:
     --topic dbserver1.inventory.customers
 
 get-jupyter-token:
-	docker-compose -f docker-compose.yml exec jupyter-postgres jupyter notebook list
+	docker-compose -f docker-compose.yml exec jupyter-local jupyter notebook list
+
+get-postgres-driver:
+	docker-compose -f docker-compose.yml exec jupyter-local \
+	wget -P /home/jovyan https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.5/postgresql-42.2.5.jar
