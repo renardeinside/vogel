@@ -52,8 +52,12 @@ Column      |  Type   | Modifiers
 product_id  | integer | not null
 quantity    | integer | not null
 ```
+
 ## Misc
 To connect to the database, please use:
 ```
-docker-compose -f docker-compose.yml exec postgres env PGOPTIONS="--search_path=inventory" bash -c 'psql -U $POSTGRES_USER postgres'
+docker-compose  \
+  -f docker-compose.yml \
+  exec postgres env PGOPTIONS="--search_path=inventory" \
+  bash -c 'psql -U $POSTGRES_USER postgres'
 ```
