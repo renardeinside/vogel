@@ -5,6 +5,8 @@ spark = pyspark.sql.SparkSession.builder \
         .appName("cdc-reader") \
         .getOrCreate()
 
+spark.sparkContext.setLogLevel("ERROR")
+
 stream = spark \
   .readStream \
   .format("kafka") \
