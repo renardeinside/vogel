@@ -7,3 +7,6 @@ create-consumer:
     --from-beginning \
     --property print.key=true \
     --topic dbserver1.inventory.customers
+
+get-jupyter-token:
+	docker-compose -f docker-compose.yml exec jupyter-postgres jupyter notebook list

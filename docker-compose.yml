@@ -34,3 +34,13 @@ services:
      - CONFIG_STORAGE_TOPIC=my_connect_configs
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
      - STATUS_STORAGE_TOPIC=my_connect_statuses
+  jupyter-local:
+    build: ./jupyter-local
+    ports:
+     - 8888:8888
+     - 4040:4040
+    links:
+      - kafka
+      - postgres
+    volumes:
+      - ./jupyter-local/notebooks:/home/jovyan/work

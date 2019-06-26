@@ -5,7 +5,7 @@ This is a very simple example of PostgreSQL CDC via amazing Debezium Connector.
 ## Commands reference:
 - first of all, run:
 ```
-docker-compose up
+docker-compose up --build
 ```
 - register PostgreSQL connector:
 ```
