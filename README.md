@@ -3,18 +3,22 @@
 This is a very simple example of PostgreSQL CDC via amazing Debezium Connector.
 
 ## Commands reference:
+
 - first of all, run:
 ```
 docker-compose up --build
 ```
-- register PostgreSQL connector:
+- to get the jupyter token, please run:
 ```
-make register-postgres
+docker-compose -f docker-compose.yml exec jupyter-local jupyter notebook list
 ```
-- create Kafka Consumer:
+In answer you will receive:
 ```
-make create-consumer
+Currently running servers:
+http://0.0.0.0:8888/?token={here goes tour token} :: /home/jovyan
 ```
+Please copy the provided link to the browser.
+
 
 ## Data Schema
 - Customers:
@@ -54,7 +58,7 @@ quantity    | integer | not null
 ```
 
 ## Misc
-To connect to the database, please use:
+To connect to the database directly, please use:
 ```
 docker-compose  \
   -f docker-compose.yml \
