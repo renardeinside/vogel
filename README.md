@@ -15,7 +15,7 @@ docker-compose -f docker-compose.yml exec jupyter-local jupyter notebook list
 In answer you will receive:
 ```
 Currently running servers:
-http://0.0.0.0:8888/?token={here goes tour token} :: /home/jovyan
+http://0.0.0.0:8888/?token={here goes your token} :: /home/jovyan
 ```
 Please copy the provided link to the browser.
 
